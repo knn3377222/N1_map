@@ -10,7 +10,9 @@ import java.io.FileInputStream;
 
 	public static void Exif_load(String img_path,String img_name) {
 		try{
+			Write_gps writeTXT = new Write_gps();
 			if( img_path != null ){
+				//パスは現在windows向けの書き方になっている￥
 				String fullpath = img_path +"\\"+img_name;
 				imgfile = fullpath;
 			}
@@ -172,7 +174,7 @@ System.out.println( "  gps_data_s = " + gps_data_s );
 									lng = lngn * lng;
 									System.out.println( "lat=" + lat + ",lng=" + lng );
 									//このlatとlngをよそに渡す
-									//Write_gps.export_gpstxt(img_path,img_name, lat, lng);
+									writeTXT.export_gpstxt(img_path,img_name, lat, lng);
 
 								}
 
